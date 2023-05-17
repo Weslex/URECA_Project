@@ -12,7 +12,7 @@ from tensorflow import keras
 from tensorflow.keras import layers
 import numpy as np
 import matplotlib.pyplot as plt
-import tensorflow_addons as tfa
+#import tensorflow_addons as tfa
 
 
 # #### Load the Pretraining MNIST Dataset
@@ -74,7 +74,7 @@ input_shape = (100, 100, 1)
 learning_rate = 0.001
 weight_decay = 0.0001
 batch_size = 256
-num_epochs = 5
+num_epochs = 200
 image_size = 100
 patch_size = 16
 num_patches = (image_size // patch_size) ** 2
@@ -216,7 +216,7 @@ validation = validation.batch(256)
 
 
 def run_experiment(model):
-    optimizer = tfa.optimizers.AdamW(
+    optimizer = keras.optimizers.Adam(
         learning_rate=learning_rate, weight_decay=weight_decay
     )
 
